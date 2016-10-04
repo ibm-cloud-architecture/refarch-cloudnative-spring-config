@@ -1,17 +1,12 @@
 spring:
   application:
-    name: config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/ibm-cloud-architecture/microservices-netflix-config
+    name: appetizer-service
+#  cloud:
+#    client:
+#      hostname: localhost
 
 server:
-  port: 8888
-
-management:
-  context-path: /admin
+  port: 8082
 
 eureka:
   client:
@@ -22,11 +17,15 @@ eureka:
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
     preferIpAddress: true
-    
-logging:
-  level:
-    com.netflix.discovery: 'OFF'
-    org.springframework.cloud: 'DEBUG'
+
+wfd:
+  appetizer:
+    order: 1
+    type: appetizer
+    menu:
+      - Hummus
+      - Crab Cakes
+      - Mozzerella Sticks
 
 ---
 spring:

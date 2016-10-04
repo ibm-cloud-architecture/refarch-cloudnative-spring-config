@@ -14,8 +14,8 @@ apply plugin: 'spring-boot'
 apply plugin: 'io.spring.dependency-management'
 
 jar {
-    baseName = 'spring-boot-configserver'
-    version =  '0.1.0'
+    baseName = 'config'
+    version =  '0.0.1-SNAPSHOT'
 }
 
 repositories {
