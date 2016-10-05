@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: appetizer-service
+#  cloud:
+#    client:
+#      hostname: localhost
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: ${vcap.services.eureka-service-discovery.credentials.uri:http://localhost:8761/eureka/}
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost}
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+    preferIpAddress: true
+
+wfd:
+  appetizer:
+    order: 1
+    type: appetizer
+    menu:
+      - Hummus
+      - Crab Cakes
+      - Chicken Satay
+      - Mozzerella Sticks
+
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    nonSecurePort: 80
+    preferIpAddress: false
