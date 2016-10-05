@@ -1,9 +1,6 @@
 spring:
   application:
     name: appetizer-service
-#  cloud:
-#    client:
-#      hostname: localhost
 
 server:
   port: 8082
