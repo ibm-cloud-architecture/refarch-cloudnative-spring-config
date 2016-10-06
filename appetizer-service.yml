@@ -25,8 +25,8 @@ wfd:
       - Mozzerella Sticks
 
 #---
-#spring:
-#  profiles: cloud
+spring:
+  profiles: cloud
 #eureka:
 #  instance:
 #    nonSecurePort: 80
