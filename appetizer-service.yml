@@ -24,7 +24,7 @@ wfd:
       - Chicken Satay
       - Mozzerella Sticks
 
-#---
+---
 spring:
   profiles: cloud
 
