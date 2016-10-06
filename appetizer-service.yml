@@ -24,10 +24,10 @@ wfd:
       - Chicken Satay
       - Mozzerella Sticks
 
----
-spring:
-  profiles: cloud
-eureka:
-  instance:
-    nonSecurePort: 80
-    preferIpAddress: false
+#---
+#spring:
+#  profiles: cloud
+#eureka:
+#  instance:
+#    nonSecurePort: 80
+#    preferIpAddress: false
