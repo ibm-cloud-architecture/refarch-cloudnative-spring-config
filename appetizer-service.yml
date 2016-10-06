@@ -31,6 +31,16 @@ spring:
 server:
   port: 8082
 
+wfd:
+  appetizer:
+    order: 1
+    type: appetizer
+    menu:
+      - Hummus
+      - Crab Cakes
+      - Chicken Satay
+      - Mozzerella Sticks
+
 #eureka:
 #  instance:
 #    nonSecurePort: 80
