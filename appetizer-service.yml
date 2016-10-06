@@ -27,6 +27,10 @@ wfd:
 #---
 spring:
   profiles: cloud
+
+server:
+  port: 8082
+
 #eureka:
 #  instance:
 #    nonSecurePort: 80
