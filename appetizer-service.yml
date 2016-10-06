@@ -1,6 +1,5 @@
-spring:
-  application:
-    name: appetizer-service
+configuration:  
+  projectName: appetizer-service
 
 server:
   port: 8082
