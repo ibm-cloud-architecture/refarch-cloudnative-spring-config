@@ -5,10 +5,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/ibm-cloud-architecture/microservices-netflix-config
+          uri: https://github.com/ibm-cloud-architecture/refarch-cloudnative-spring-config
 
 server:
-  port: 8888
+  port: ${vcap.application.port:8888}
 
 management:
   context-path: /admin
