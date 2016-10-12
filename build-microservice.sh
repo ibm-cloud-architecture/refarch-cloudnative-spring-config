@@ -1,8 +1,8 @@
 #!/bin/bash
 
-IMAGE_NAME=microservices-refapp-config
-MAVEN_BUILD_TARGET=target/config-0.0.1-SNAPSHOT.jar
-GRADLE_BUILD_TARGET=build/libs/config-0.0.1-SNAPSHOT.jar
+IMAGE_NAME=spring-config
+MAVEN_BUILD_TARGET=target/config-server-0.0.1-SNAPSHOT.jar
+GRADLE_BUILD_TARGET=build/libs/config-server-0.0.1-SNAPSHOT.jar
 
 while getopts "md" ARG; do
   case ${ARG} in
