@@ -1,0 +1,9 @@
+wfd:
+  dessert:
+    order: 3
+    type: dessert
+    menu:
+      - Chocolate Cake
+      - Banoffee
+      - Ice Cream
+      - Tiramisu

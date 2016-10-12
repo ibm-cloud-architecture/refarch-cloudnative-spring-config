@@ -1,0 +1,9 @@
+wfd:
+  entree:
+    order: 2
+    type: dinner
+    menu:
+      - Steak
+      - Chicken
+      - Fish
+      - Turkey
