@@ -21,5 +21,5 @@ BLUEMIX_REGISTRY_NAMESPACE=$(cf ic namespace get)
 # Routes
 #################################################################################
 ROUTES_DOMAIN=mybluemix.net
-PROXY_HOSTNAME=netflix-zuul-${BLUEMIX_REGISTRY_NAMESPACE}
+PROXY_HOSTNAME=spring-config-${BLUEMIX_REGISTRY_NAMESPACE}
 PROXY_URL=http://${REGISTRY_HOSTNAME}.${ROUTES_DOMAIN}
