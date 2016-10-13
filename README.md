@@ -3,7 +3,7 @@
 ## Netflix OSS on Bluemix - Spring Cloud Config
 
 #### Description
-  This project contains a packaged [Config](https://github.com/ibm-cloud-architecture/refarch-cloudnative-spring-config) config server for use in 
+  This project contains a packaged [Spring Config](https://github.com/ibm-cloud-architecture/refarch-cloudnative-spring-config) config server for use in 
   a [Netflix OSS](http://netflix.github.io/)-based microservices architecture.  This enables individual microservices to be configured dynamically.  
   The repository builds the config server component into a runnable JAR that can either be used directly in Cloud Foundry or built into a Docker image (with the [Dockerfile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul/blob/master/docker/Dockerfile) provided).
 
@@ -72,4 +72,4 @@ There are no explicit APIs exposed by Config.
 
 #### Validate the Application Component Deployment
 1.  Validate that the Eureka user interface appears after a few seconds of the application being started.  
-2.  Verify that there is a registered `config-server` microservice registered with Eureka, visible in the Eureka Dashboard. 
+2.  Verify that there is a registered `config-server` microservice registered with Eureka, visible in the Eureka Dashboard.
