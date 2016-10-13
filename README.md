@@ -3,7 +3,7 @@
 ## Netflix OSS on Bluemix - Spring Cloud Config
 
 #### Description
-  This project contains a packaged [Spring Config](https://github.com/ibm-cloud-architecture/refarch-cloudnative-spring-config) config server for use in 
+  This project contains a packaged [Spring Config](https://github.com/ibm-cloud-architecture/refarch-cloudnative-spring-config) config server for use in
   a [Netflix OSS](http://netflix.github.io/)-based microservices architecture.  This enables individual microservices to be configured dynamically.  
   The repository builds the config server component into a runnable JAR that can either be used directly in Cloud Foundry or built into a Docker image (with the [Dockerfile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul/blob/master/docker/Dockerfile) provided).
 
@@ -20,14 +20,6 @@
 
 The **Microservices Reference Application for Netflix OSS** is maintained by the IBM Cloud Lab Services and [Cloud Solution Engineering](https://github.com/ibm-cloud-architecture) teams.
 
-#### Application Architecture
-1.  **IBM Cloud Architecture - Microservices Reference Application for Netflix OSS**  
-    The Microservices Reference Application for Netflix OSS leverages Zuul as its main edge proxy mechanism, controlling all inbound traffic into the application.  You can see where Eureka is used, highlighted in the diagram below.  
-    ![Microservices RefApp Architecture](static/imgs/netflix-oss-wfd-arch-zuul.png?raw=true)
-2.  **IBM Cloud Architecture - Cloud Native Microservices Reference Application for OmniChannel**  
-    The Zuul Proxy component is also leveraged in the [OmniChannel Application](https://github.com/ibm-cloud-architecture/refarch-cloudnative) as its main proxy interface between external and internal microservices.  You can see where Zuul is used, highlighted in the diagram below.  
-    ![OmniChannel Application Architecture](static/imgs/omnichannel-arch-zuul.png?raw=true)
-
 #### APIs in this application:
 There are no explicit APIs exposed by Config.
 
@@ -41,7 +33,7 @@ There are no explicit APIs exposed by Config.
         `./build-microservice.sh [-d]`  
   or  
         `./build-microservice.sh -m [-d]`  
-  to run the Gradle or Maven builds, respectively.  Specify the -d flag to build the Docker image in addition to the runnable JAR. Both build packages produce the same output, however both build files are provided for convenience of the user.
+  to run the Gradle or Maven builds, respectively.  Specify the -d flag to build the Docker image in addition to the runnable JAR. Both build packages produce the same output, however both build files are provided for convenience of the user.    The default Gradle build instructions use a Gradle wrapper requiring no further installation.  The Maven build instructions require Maven to be installed locally.
 
 #### Run the Application Component Locally
 1.  You will need a local [Eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) application instance running to connect to, from which Zuul will proxy requests to additional service instances.
