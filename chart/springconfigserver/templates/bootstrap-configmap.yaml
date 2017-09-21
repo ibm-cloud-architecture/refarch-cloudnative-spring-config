@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-bootstrap
+  labels:
+    component: config-server-bootstrap
+data:
+  bootstrap.yaml: |+
+    spring:
+      rabbitmq:
+        addresses: {{ .Values.rabbitmq.url }}
+        host: {{ .Values.rabbitmq.host }}
+        port: {{ .Values.rabbitmq.port }}
+        username: {{ .Values.rabbitmq.username }}
+        password: {{ .Values.rabbitmq.password }}
+        virtual-host: {{ .Values.rabbitmq.virtualHost }}
+        ssl:
+          enabled: {{ .Values.rabbitmq.sslEnabled }}
+      cloud:
+        config:
+          uri: http://{{ .Values.service.name }}:{{ .Values.service.port }}
+{{ if .Values.bootstrap.values }}
+  {{- toYaml .Values.bootstrap.values | indent 4 }}
+{{ end }}
