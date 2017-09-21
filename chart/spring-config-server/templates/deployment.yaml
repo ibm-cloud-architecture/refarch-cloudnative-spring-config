@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         readinessProbe:
           httpGet:
-            path: /health
+            path: /admin/health
             port: {{ .Values.service.internalPort }}
           initialDelaySeconds: 20
         volumeMounts:
