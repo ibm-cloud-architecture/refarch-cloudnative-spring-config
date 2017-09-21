@@ -1,4 +1,4 @@
 apiVersion: v1
 description: Spring Config Server
-name: springconfigserver
+name: spring-config-server
 version: 1.0.0
