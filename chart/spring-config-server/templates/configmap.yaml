@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-{{ .Chart.Name }}-config-server
+  labels:
+    component: config-server
+data:
+  bootstrap.yaml: |+
+    server:
+      port: {{ .Values.service.internalPort }}
+    application:
+      name: spring-config-server
+
+  application.yaml: |+
+    spring:
+      rabbitmq:
+        addresses: {{ .Values.rabbitmq.url }}
+        host: {{ .Values.rabbitmq.host }}
+        port: {{ .Values.rabbitmq.port }}
+        username: {{ .Values.rabbitmq.username }}
+        password: {{ .Values.rabbitmq.password }}
+        virtual-host: {{ .Values.rabbitmq.virtualHost }}
+        ssl:
+          enabled: {{ .Values.rabbitmq.sslEnabled }}
+      cloud:
+        config:
+          server:
+            git:
+              uri: {{ .Values.git.uri }}
