@@ -3,6 +3,7 @@ build/
 target/
 *.jar
 .DS_Store
+.*.sw*
 
 # Ignore Gradle GUI config
 gradle-app.setting

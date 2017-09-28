@@ -1,9 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-{{ .Chart.Name }}-config-server
+  name: {{ .Release.Name }}-{{ .Chart.Name }}
   labels:
     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
     component: config-server
 spec:
   replicas:  {{ .Values.replicaCount }}
@@ -29,9 +31,9 @@ spec:
         - name: ENCRYPT_KEY
           valueFrom:
             secretKeyRef:
-              name: {{ .Release.Name }}-{{ .Chart.Name }}-config-server
+              name: {{ .Release.Name }}-{{ .Chart.Name }}
               key: encrypt.key
       volumes:
       - name: config-server-data
         configMap:
-          name: {{ .Release.Name }}-{{ .Chart.Name }}-config-server
+          name: {{ .Release.Name }}-{{ .Chart.Name }}
