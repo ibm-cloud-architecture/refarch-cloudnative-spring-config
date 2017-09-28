@@ -3,7 +3,10 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-{{ .Chart.Name }}-bootstrap
   labels:
-    component: config-server-bootstrap
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    component: config-server   
 data:
   bootstrap.yaml: |+
     spring:
@@ -18,7 +21,7 @@ data:
           enabled: {{ .Values.rabbitmq.sslEnabled }}
       cloud:
         config:
-          uri: http://{{ .Values.service.name }}:{{ .Values.service.port }}
+          uri: http://{{ .Release.Name }}-{{ .Chart.Name }}:{{ .Values.service.port }}
 {{ if .Values.bootstrap.values }}
   {{- toYaml .Values.bootstrap.values | indent 4 }}
 {{ end }}

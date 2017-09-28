@@ -9,7 +9,6 @@ image:
   pullPolicy: Always
 
 service:
-  name: config-server
   type: ClusterIP
   port: 8888
   internalPort: 8888
@@ -23,9 +22,14 @@ rabbitmq:
   virtualHost:
   sslEnabled: 
 
-git:
-  uri: 
-
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: 
+          searchPaths:
+  
 encryption:
   key: 8YiY6ypoTgoLrdyPa1dgijUNfeyWcGTEjESSUuF6o9gKA1ZdgPJj5BUpOQrf7qkK
   
