@@ -16,15 +16,6 @@ data:
 
   application.yaml: |+
     spring:
-      rabbitmq:
-        addresses: {{ .Values.rabbitmq.url }}
-        host: {{ .Values.rabbitmq.host }}
-        port: {{ .Values.rabbitmq.port }}
-        username: {{ .Values.rabbitmq.username }}
-        password: {{ .Values.rabbitmq.password }}
-        virtual-host: {{ .Values.rabbitmq.virtualHost }}
-        ssl:
-          enabled: {{ .Values.rabbitmq.sslEnabled }}
       cloud:
         config:
           server:
@@ -33,3 +24,8 @@ data:
 {{ if .Values.spring.cloud.config.server.git.searchPaths }}
               searchPaths: {{ .Values.spring.cloud.config.server.git.searchPaths }}
 {{ end }}
+{{ template "rabbitMqConfig" . }}
+
+{{ template "eurekaConfig" . }}
+
+
