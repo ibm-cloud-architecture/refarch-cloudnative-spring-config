@@ -10,18 +10,16 @@ metadata:
 data:
   bootstrap.yaml: |+
     spring:
-      rabbitmq:
-        addresses: {{ .Values.rabbitmq.url }}
-        host: {{ .Values.rabbitmq.host }}
-        port: {{ .Values.rabbitmq.port }}
-        username: {{ .Values.rabbitmq.username }}
-        password: {{ .Values.rabbitmq.password }}
-        virtual-host: {{ .Values.rabbitmq.virtualHost }}
-        ssl:
-          enabled: {{ .Values.rabbitmq.sslEnabled }}
       cloud:
         config:
           uri: http://{{ .Release.Name }}-{{ .Chart.Name }}:{{ .Values.service.port }}
+          failFast: true
+
+  application.yaml: |+
+    spring:
+{{ include "rabbitMqConfig" . }}
+{{ include "bootstrapZipkinConfig" . }}
+{{ include "bootstrapEurekaConfig" . }}
 {{ if .Values.bootstrap.values }}
   {{- toYaml .Values.bootstrap.values | indent 4 }}
 {{ end }}

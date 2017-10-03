@@ -9,19 +9,35 @@ image:
   pullPolicy: Always
 
 service:
+  name:
   type: ClusterIP
   port: 8888
   internalPort: 8888
 
-rabbitmq:
-  url:
-  host:
-  port:
-  username:
-  password:
-  virtualHost:
-  sslEnabled: 
+global:
+  rabbitmq:
+    url:
+    host:
+    port:
+    username:
+    password:
+    virtualHost:
+    sslEnabled: false
+  
+  eureka:
+    service:
+      name:
+      port:
 
+  zipkin:
+    service:
+      name:
+      port:
+
+    
+encryption:
+  key: 8YiY6ypoTgoLrdyPa1dgijUNfeyWcGTEjESSUuF6o9gKA1ZdgPJj5BUpOQrf7qkK
+  
 spring:
   cloud:
     config:
@@ -29,9 +45,7 @@ spring:
         git:
           uri: 
           searchPaths:
-  
-encryption:
-  key: 8YiY6ypoTgoLrdyPa1dgijUNfeyWcGTEjESSUuF6o9gKA1ZdgPJj5BUpOQrf7qkK
-  
+
+
 bootstrap:
-  values: ''
+  values: 

@@ -1,0 +1,74 @@
+{{ define "rabbitMqConfig" }}
+      rabbitmq:
+        addresses: {{ .Values.global.rabbitmq.url }}
+        host: {{ .Values.global.rabbitmq.host }}
+        port: {{ .Values.global.rabbitmq.port }}
+        username: {{ .Values.global.rabbitmq.username }}
+        password: {{ .Values.global.rabbitmq.password }}
+        virtual-host: {{ .Values.global.rabbitmq.virtualHost }}
+{{ if .Values.global.rabbitmq.sslEnabled }}
+        ssl:
+          enabled: {{ .Values.global.rabbitmq.sslEnabled }}
+{{ end }}
+
+{{ end }}
+
+{{- define "eurekaUrl" -}}
+{{- end -}}
+
+{{- define "eurekaConfig" }}
+{{- $eurekaHostname :=  (printf "%s-spring-eureka-server" .Release.Name) -}}
+{{- $eurekaPort := 8761 -}}
+
+{{- if .Values.global.eureka.service.name -}}
+{{- $eurekaHostname := .Values.global.eureka.hostname -}}
+{{- end -}}
+
+{{- if .Values.global.eureka.service.name -}}
+{{- $eurekaPort := .Values.global.eureka.port -}}
+{{- end }}
+    eureka:
+      instance:
+        preferIpAddress: true
+      client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+          defaultZone: http://{{ $eurekaHostname }}:{{ $eurekaPort }}/eureka/
+{{ end -}}
+
+{{- define "bootstrapEurekaConfig" -}}
+{{- $eurekaHostname :=  (printf "%s-spring-eureka-server" .Release.Name) -}}
+{{- $eurekaPort := 8761 -}}
+
+{{- if .Values.global.eureka.service.name -}}
+{{- $eurekaHostname := .Values.global.eureka.hostname -}}
+{{- end -}}
+
+{{- if .Values.global.eureka.service.name -}}
+{{- $eurekaPort := .Values.global.eureka.port -}}
+{{- end }}
+    eureka:
+      instance:
+        preferIpAddress: true
+      client:
+        registerWithEureka: true
+        fetchRegistry: true
+        serviceUrl:
+          defaultZone: http://{{ $eurekaHostname }}:{{ $eurekaPort }}/eureka/
+{{ end -}}
+
+{{- define "bootstrapZipkinConfig" -}}
+{{- $zipkinHostname :=  (printf "%s-zipkin-server" .Release.Name) -}}
+{{- $zipkinPort := 9411 -}}
+
+{{- if .Values.global.zipkin.service.name -}}
+{{- $zipkinHostname := .Values.global.zipkin.hostname -}}
+{{- end -}}
+
+{{- if .Values.global.zipkin.service.name -}}
+{{- $zipkinPort := .Values.global.zipkin.port -}}
+{{- end }}
+      zipkin:
+        baseUrl: http://{{ $zipkinHostname }}:{{ $zipkinPort }}
+{{ end -}}
